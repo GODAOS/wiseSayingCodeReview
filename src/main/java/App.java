@@ -18,9 +18,9 @@ public class App {
                 add();
             } else if (command.equals("목록")) {
                 showList();
-            } else if (command.contains("삭제")) {
+            } else if (command.startsWith("삭제?id=")) {
                 deleteWise(command);
-            } else if (command.contains("수정")) {
+            } else if (command.startsWith("수정?id=")) {
                 modifyWise(command);
             } else {
                 System.out.println("잘못된 명령입니다.");
