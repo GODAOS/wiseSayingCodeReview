@@ -86,7 +86,13 @@ public class App {
         } else if (wise_list.get(id)!=null) {// 존재한다면
             // 수정할 코드
             WiseList targetList = wise_list.get(id);
+            System.out.println("명언(기존) : "+targetList.getText()+"\n명언 : ");
+            targetList.setText(sc.nextLine().trim());// 수정할 명언 입력
 
+            System.out.println("작가(기존)"+targetList.getAuthor()+"\n작가 : ");
+            targetList.setAuthor(sc.nextLine().trim());// 수정할 작가 입력
+
+            System.out.println(id+"번 명언 수정 완료");
         }
 
     }
