@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class App {
-    private Scanner sc = new Scanner(System.in);
-    private Map<Integer, WiseList> wise_list = new HashMap<>();
+    private final Scanner sc = new Scanner(System.in);
+    private final Map<Integer, WiseList> wise_list = new HashMap<>();
 
     public void run() {// 명령 실행
 
