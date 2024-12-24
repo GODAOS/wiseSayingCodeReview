@@ -4,7 +4,7 @@ public class App {
     private final Scanner sc = new Scanner(System.in);
     private final Map<Integer, WiseList> wise_list = new HashMap<>();
 
-    public void run() {// 명령 실행
+    public void run() {// 앱 실행
 
         System.out.println("== 명언 앱 ==");
         while (true) {
@@ -29,7 +29,6 @@ public class App {
     }
 
 
-
     // 등록 처리
     private void add() {
         System.out.print("명언 : ");
@@ -51,7 +50,7 @@ public class App {
             System.out.println("등록된 명언이 없습니다.");
         } else {
             for (int i = WiseList.getIdCount(); i > 0; i--) {
-                if (wise_list.get(i) == null){ // 명언이 비어있을때
+                if (wise_list.get(i) == null) { // 명언이 비어있을때
                     continue;
                 }
                 wise_list.get(i).display();// 목록 역순 출력
@@ -62,15 +61,15 @@ public class App {
     // 삭제처리
     private void deleteWise(String command) {
         // '삭제?id=' 분리
-        String[] arr = command.split("=");
-        Integer id = Integer.parseInt((arr[1]));
+        String sb = command.substring(6);
+        Integer id = Integer.parseInt(sb);
 
         // 해당 명언 존재 여부
-        if(wise_list.get(id)==null){ // 해당 명언이 존재하지 않는다면
-            System.out.println(id+"번 명언이 존재하지 않습니다.");
-        } else if (wise_list.get(id)!=null) {// 존재한다면
+        if (wise_list.get(id) == null) { // 해당 명언이 존재하지 않는다면
+            System.out.println(id + "번 명언이 존재하지 않습니다.");
+        } else if (wise_list.get(id) != null) {// 존재한다면
             wise_list.remove(id);
-            System.out.println(arr[1] + "번 명언이 삭제되었습니다.");
+            System.out.println(id + "번 명언이 삭제되었습니다.");
         }
 
     }
@@ -81,18 +80,18 @@ public class App {
         String[] arr = command.split("=");
         Integer id = Integer.parseInt((arr[1]));
 
-        if(wise_list.get(id)==null){ // 해당 명언이 존재하지 않는다면
-            System.out.println(id+"번 명언이 존재하지 않습니다.");
-        } else if (wise_list.get(id)!=null) {// 존재한다면
+        if (wise_list.get(id) == null) { // 해당 명언이 존재하지 않는다면
+            System.out.println(id + "번 명언이 존재하지 않습니다.");
+        } else if (wise_list.get(id) != null) {// 존재한다면
             // 수정할 코드
             WiseList targetList = wise_list.get(id);
-            System.out.println("명언(기존) : "+targetList.getText()+"\n명언 : ");
+            System.out.println("명언(기존) : " + targetList.getText() + "\n명언 : ");
             targetList.setText(sc.nextLine().trim());// 수정할 명언 입력
 
-            System.out.println("작가(기존)"+targetList.getAuthor()+"\n작가 : ");
+            System.out.println("작가(기존)" + targetList.getAuthor() + "\n작가 : ");
             targetList.setAuthor(sc.nextLine().trim());// 수정할 작가 입력
 
-            System.out.println(id+"번 명언 수정 완료");
+            System.out.println(id + "번 명언 수정 완료");
         }
 
     }

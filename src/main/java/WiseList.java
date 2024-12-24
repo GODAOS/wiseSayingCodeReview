@@ -11,7 +11,7 @@ public class WiseList {
     }
 
     public void display() {
-        System.out.println(id+" / "+text+" / "+author);
+        System.out.println(id + " / " + text + " / " + author);
     }
 
     public static int getIdCount() {
